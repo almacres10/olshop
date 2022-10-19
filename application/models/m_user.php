@@ -22,6 +22,18 @@ class m_user extends CI_Model {
         
     }
 
+    public function edit($data)
+    {
+        $this->db->where('id_user', $data['id_user']);
+        $this->db->update('db_user', $data  );
+    }
+
+    public function delete($data)
+    {
+        $this->db->where('id_user', $data['id_user']);
+        $this->db->delete('db_user', $data  );
+    }
+
 }
 
 /* End of file ModelName.php */
