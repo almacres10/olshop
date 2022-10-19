@@ -62,7 +62,7 @@
     <!-- /.card -->
 </div>
 
-
+<!-- /.modal add -->
 <div class="modal fade" id="add">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -187,9 +187,7 @@
     <!-- /.modal-dialog -->
 </div>
 <?php } ?>
-
-
-
+<!-- /.modal -->
 
 
 <!-- /.modal delete -->
@@ -198,7 +196,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Delete <?= $value->nama_user ?> </h4>
+                <h4 class="modal-title"> Delete <?= $value->nama_user ?> </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -208,7 +206,7 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <a href="<?= base_url('user/delete'.$value->id_user) ?>" class="btn btn-primary">Delete</button>
+                <a href="<?= base_url('user/delete/'.$value->id_user) ?>" class="btn btn-primary">Delete</a>
             </div>
         </div>
         <!-- /.modal-content -->
