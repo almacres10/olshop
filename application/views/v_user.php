@@ -12,16 +12,16 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-        <?php
-        if ($this->session->flashdata('pesan')){
-            echo' <div class="alert alert-success alert-dismissible">
+            <?php
+            if ($this->session->flashdata('pesan')) {
+                echo ' <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <h5><i class="icon fas fa-ban"></i> Sukses!';
-            echo $this->session->flashdata('pesan');
-            echo'</h5> </div>';
-        };
-        
-        ?>
+                echo $this->session->flashdata('pesan');
+                echo '</h5> </div>';
+            };
+
+            ?>
 
             <table class="table table-bordered" id='example1'>
                 <thead class='text-center'>
@@ -75,7 +75,7 @@
             <div class="modal-body">
 
                 <?php
-                echo form_open('user/edit/'.$value->id_user);
+                echo form_open('user/edit/' . $value->id_user);
                 ?>
 
                 <div class="form-group">
@@ -124,93 +124,93 @@
 
 <!-- /.modal edit -->
 <?php foreach ($user as $key => $value) { ?>
-<div class="modal fade" id="edit<?= $value->id_user ?>">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Edit User</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
+    <div class="modal fade" id="edit<?= $value->id_user ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit User</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
 
+                    <?php
+                    echo form_open('user/edit/' . $value->id_user);
+                    ?>
+
+                    <div class="form-group">
+                        <label>Nama User</label>
+                        <input type="text" name="nama_user" value="<?= $value->nama_user ?>" class="form-control" placeholder="Nama User" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" value="<?= $value->username ?>" class="form-control" placeholder="Username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="text" name="password" value="<?= $value->password ?>" class="form-control" placeholder="Password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Level User</label>
+                        <select name="level" class="form_control">
+                            <option value="1" <?php if ($value->level == 1) {
+                                                    echo 'selected';
+                                                } ?>>Admin</option>
+                            <option value="2" <?php if ($value->level == 2) {
+                                                    echo 'selected';
+                                                } ?>>User</option>
+                        </select>
+                    </div>
+
+
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
                 <?php
-                echo form_open('user/edit/'.$value->id_user);
+                echo form_close();
                 ?>
 
-                <div class="form-group">
-                    <label>Nama User</label>
-                    <input type="text" name="nama_user" value="<?= $value->nama_user ?>" class="form-control" placeholder="Nama User" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" value="<?= $value->username ?>" class="form-control" placeholder="Username" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="text" name="password" value="<?= $value->password ?>" class="form-control" placeholder="Password" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Level User</label>
-                    <select name="level" class="form_control">
-                        <option value="1" <?php if($value->level == 1){
-                            echo 'selected';
-                        } ?>>Admin</option>
-                        <option value="2" <?php if($value->level == 2){
-                            echo 'selected';
-                        } ?>>User</option>
-                    </select>
-                </div>
-
-
-
-
-
 
             </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-            <?php
-            echo form_close();
-            ?>
-
-
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>
 <?php } ?>
 <!-- /.modal -->
 
 
 <!-- /.modal delete -->
 <?php foreach ($user as $key => $value) { ?>
-<div class="modal fade" id="delete<?= $value->id_user ?>">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"> Delete <?= $value->nama_user ?> </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+    <div class="modal fade" id="delete<?= $value->id_user ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"> Delete <?= $value->nama_user ?> </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Apakah anda yakin untuk menghapus?</h5>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="<?= base_url('user/delete/' . $value->id_user) ?>" class="btn btn-primary">Delete</a>
+                </div>
             </div>
-            <div class="modal-body">
-                <h5>Apakah anda yakin untuk menghapus?</h5>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <a href="<?= base_url('user/delete/'.$value->id_user) ?>" class="btn btn-primary">Delete</a>
-            </div>
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>
 <?php } ?>

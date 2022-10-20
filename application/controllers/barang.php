@@ -10,6 +10,8 @@ class barang extends CI_Controller
     {
         parent::__construct();
         //Load Dependencies
+        $this->load->model('m_barang');
+        
 
     }
 
@@ -18,6 +20,7 @@ class barang extends CI_Controller
     {
         $data = array(
             'title' => 'barang',
+            'barang' => $this->m_barang->get_all_data(),
             'isi' => 'barang/v_barang',
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
