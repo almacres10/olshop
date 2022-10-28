@@ -140,7 +140,3 @@
         <!-- /.navbar -->
 
         <!-- REQUIRED SCRIPTS -->
-
-
-    </div>
-</body>
