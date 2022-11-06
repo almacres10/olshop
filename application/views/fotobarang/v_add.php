@@ -29,7 +29,7 @@
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <h5><i class="icon fas fa-exclamation-triangle"></i>' . $error_upload . '</h5> </div>';
             }
-            echo form_open_multipart('') ?>
+            echo form_open_multipart('fotobarang/add/' . $barang->id_barang) ?>
 
             <div class="row">
                 <div class="col-sm-4">
@@ -60,12 +60,13 @@
 
             <div class="row">
                 <?php foreach ($gambar as $key => $value) { ?>
-
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <img src="<?= base_url('assets/fotogambar/'.$value->gambar) ?>" id="gambar_load" width="250px">
+                            <img src="<?= base_url('assets/fotogambar/' . $value->gambar) ?>" id="gambar_load" width="150px" height="150px">
                         </div>
-                        <a href="<?= base_url('fotobarang') ?>" class="btn btn-danger btn-sm btn-block"><i class="fas fa-trash"> Delete </i> </a>
+                        <p for=""> Ket : <?= $value->ket ?></p>
+                        <button data-toggle="modal" data-target="#delete<?= $value->id_gambar  ?>" class="btn btn-danger btn-xs btn-block"><i class="fas fa-trash"> Delete </i>
+                        </button>
                     </div>
                 <?php } ?>
             </div>
@@ -76,6 +77,34 @@
     </div>
     <!-- /.card -->
 </div>
+
+<!-- /.modal delete -->
+<?php foreach ($gambar as $key => $value) { ?>
+    <div class="modal fade" id="delete<?= $value->id_gambar ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"> Delete <?= $value->ket ?> </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="form-group">
+                        <img src="<?= base_url('assets/fotogambar/' . $value->gambar) ?>" id="gambar_load" width="150px" height="150px">
+                        <h5>Apakah anda yakin untuk menghapus?</h5>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <a href="<?= base_url('fotobarang/delete/' . $value->id_barang . '/' . $value->id_gambar) ?>" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
 
 <script>
     function bacagambar(input) {

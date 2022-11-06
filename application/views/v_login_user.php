@@ -19,7 +19,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href=<?= base_url() ?>><b>Toko</b>Online</a>
+            <a href="<?= base_url() ?>"><b>Toko</b>Online</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -70,12 +70,9 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" id="remember">
-                            <label for="remember">
-                                Remember Me
-                            </label>
-                        </div>
+                        <a href="<?= base_url() ?>" class="btn btn-success btn-block ">
+                            Website
+                        </a>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">

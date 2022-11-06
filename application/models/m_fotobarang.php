@@ -14,10 +14,28 @@ class m_fotobarang extends CI_Model {
         return $this->db->get()->result();
     }
 
+    public function get_data($id_gambar){
+        $this->db->select('*');
+        $this->db->from('tbl_fotogambar');
+        $this->db->where('id_gambar', $id_gambar);
+        return $this->db->get()->row();
+    }
+
     public function get_gambar($id_barang){
         $this->db->select('*');
         $this->db->from('tbl_fotogambar');
         $this->db->where('id_barang', $id_barang);
         return $this->db->get()->result();
+    }
+
+    public function add($data)
+    { 
+        $this->db->insert('tbl_fotogambar ', $data);  
+    }
+
+    public function delete($data)
+    {
+        $this->db->where('id_gambar', $data['id_gambar']);
+        $this->db->delete('tbl_fotogambar', $data  );
     }
 }
