@@ -51,7 +51,7 @@ class belanja extends CI_Controller
 
             $data = array(
                 'rowid' => $items['rowid'],
-                'qty' => $this->input->post($i, '[qty'),
+                'qty' => $this->input->post($i . '[qty]'),
             );
             $this->cart->update($data);
             $i++;
@@ -62,7 +62,7 @@ class belanja extends CI_Controller
 
     public function clear()
     {
-        $this->cart->destroy;
+        $this->cart->destroy();
         redirect('belanja');
     }
 }

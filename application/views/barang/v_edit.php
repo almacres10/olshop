@@ -24,7 +24,7 @@
                             <input name="nama_barang" class="form-control" placeholder="Nama Barang" value="<?= $barang->id_barang ?>">
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Kategori</label>
                                     <select name="id_kategori" class="form-control">
@@ -37,10 +37,16 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label>Barang</label>
+                                    <label>Harga</label>
                                     <input name="harga" class="form-control" placeholder="Harga Barang" value="<?= $barang->harga ?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Berat</label>
+                                    <input type="number" min="0" name="berat" class="form-control" placeholder="Berat (gram)" value="<?= $barang->berat ?>">
                                 </div>
                             </div>
                         </div>
@@ -49,13 +55,13 @@
                             <textarea name="deskripsi" class="form-control" rows="5" placeholder="Deskripsi Barang"><?= $barang->deskripsi ?></textarea>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Ganti Gambar</label>
                                     <input type="file" name="gambar" class="form-control" id="preview_gambar">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <img src="<?= base_url('assets/gambar/'.$barang->gambar) ?>" id="gambar_load" width="200px">
                                 </div>

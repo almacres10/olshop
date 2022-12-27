@@ -39,7 +39,10 @@
                     foreach ($barang as $key => $value) { ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $value->nama_barang ?></td>
+                            <td>
+                                <?= $value->nama_barang ?><br>
+                                Berat : <?= $value->berat ?>
+                            </td>
                             <td><?= $value->nama_kategori ?></td>
                             <td>Rp.<?= number_format ($value->harga,0) ?></td>
                             <td>
