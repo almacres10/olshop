@@ -13,4 +13,16 @@ class m_admin extends CI_Model
     {
         return $this->db->get('tbl_kategori')->num_rows();
     }
+    public function data_setting()
+    {
+        $this->db->select('*');
+        $this->db->from('settings');
+        $this->db->where('id',1);
+        return $this->db->get()->row();
+    }
+    public function edit($data)
+    {
+        $this->db->where('id', $data['id']);
+        $this->db->update('settings', $data  );
+    }
 }

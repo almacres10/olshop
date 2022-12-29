@@ -110,6 +110,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="<?= base_url('admin/setting') ?>" class="nav-link">
+            <i class="nav-icon fas fa-th "></i>
+            <p>
+              Setting
+            </p>
+          </a>
+        </li>
 
         <li class="nav-item">
           <a href="<?= base_url('user') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'user') {
