@@ -53,30 +53,30 @@
       <!-- Messages Dropdown Menu -->
 
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <img src="<?= base_url() ?>template/dist/img/user1-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <li class="nav-item">
+        <?php if ($this->session->userdata('email') == ""){ ?>
+          <a class="nav-link" href="<?= base_url('pelanggan/login') ?>">
+          <span class="brand-text font-weight-light">Login/Register</span>
+          <img src="<?= base_url() ?>template/dist/img/user1-128x128.jpg" alt="AdminLTE Logo" 
+          class="brand-image img-circle elevation-3" style="opacity: .8">
         </a>
+        <?php }else{ ?>
+          <a class="nav-link" data-toggle="dropdown" href="#">
+          <span class="brand-text font-weight-light">Nama Pelanggan</span>
+          <img src="<?= base_url() ?>template/dist/img/user1-128x128.jpg" alt="AdminLTE Logo" 
+          class="brand-image img-circle elevation-3" style="opacity: .8">
+        </a>
+
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">15 Notifications</span>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> 4 new messages
             <span class="float-right text-muted text-sm">3 mins</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
+        <?php } ?>
       </li>
 
       <?php
@@ -92,30 +92,30 @@
           <span class="badge badge-danger navbar-badge"><?= $jml_item ?></span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <?php if(empty($keranjang)) { ?>
+          <?php if (empty($keranjang)) { ?>
             <a href="#" class="dropdown-item">
               <p>Keranjang Belanja Kosong</p>
             </a>
-            <?php }else{ 
-              foreach ($keranjang as $key => $value) {
-            $barang = $this->m_home->detail_barang($value['id']); ?>
-            <a href="#" class="dropdown-item">
-              <div class="media">
-                <img src="<?= base_url('assets/gambar/'.$barang->gambar) ?>" alt="User Avatar" class="img-size-50 mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    <?= $value['name'] ?>
-                  </h3>
-                  <p class="text-sm"><?= $value['qty'] ?> X Rp.<?= number_format($value['price'], 0) ?></p>
-                  <p class="text-sm text-muted">
-                    <i class="fas fa-calculator"></i> Rp.<?= $this->cart->format_number($value['subtotal']); ?>
-                  </p>
+            <?php } else {
+            foreach ($keranjang as $key => $value) {
+              $barang = $this->m_home->detail_barang($value['id']); ?>
+              <a href="#" class="dropdown-item">
+                <div class="media">
+                  <img src="<?= base_url('assets/gambar/' . $barang->gambar) ?>" alt="User Avatar" class="img-size-50 mr-3">
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      <?= $value['name'] ?>
+                    </h3>
+                    <p class="text-sm"><?= $value['qty'] ?> X Rp.<?= number_format($value['price'], 0) ?></p>
+                    <p class="text-sm text-muted">
+                      <i class="fas fa-calculator"></i> Rp.<?= $this->cart->format_number($value['subtotal']); ?>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-          <?php } 
-          }?>
+              </a>
+              <div class="dropdown-divider"></div>
+          <?php }
+          } ?>
           <!-- Message End -->
 
           <a href="#" class="dropdown-item">
