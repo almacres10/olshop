@@ -68,10 +68,14 @@
 
 
 
-                    <a href="login.html" class="text-center">Sudah punya akun?</a>
+                    <a href="<?= base_url('pelanggan/login') ?>" class="text-center">Sudah punya akun?</a>
                 </div>
                 <!-- /.form-box -->
             </div><!-- /.card -->
         </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
