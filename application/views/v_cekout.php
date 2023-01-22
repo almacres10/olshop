@@ -140,7 +140,7 @@
   <!-- this row will not appear when printing -->
   <div class="row no-print">
     <div class="col-12">
-      <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+      <a href="<?= base_url('belanja') ?>" rel="noopener" class="btn btn-warning"><i class="fas fa-backward"></i>Kembali ke Keranjang</a>
       <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
         <i class="fas fa-shopping-cart"></i> Proses Cekout
       </button>
@@ -174,5 +174,20 @@
         }
       });
     });
+
+    $("select[name=kota]").on("change", function() {
+
+      $.ajax({
+        type: "POST",
+        url: "<?= base_url('rajaongkir/ekspedisi')  ?>",
+        success: function(hasil_ekspedisi) {
+          $("select[name=ekspedisi]").html(hasil_ekspedisi);
+        }
+      });
+
+    });
+
+
+
   });
 </script>
