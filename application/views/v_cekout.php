@@ -187,6 +187,18 @@
 
     });
 
+    $("select[name=ekspedisi]").on("change", function() {
+
+      $.ajax({
+        type: "POST",
+        url: "<?= base_url('rajaongkir/paket')  ?>",
+        success: function(hasil_paket) {
+          $("select[name=paket]").html(hasil_paket);
+        }
+      });
+
+    });
+
 
 
   });
