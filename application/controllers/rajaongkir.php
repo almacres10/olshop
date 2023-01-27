@@ -5,6 +5,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class rajaongkir extends CI_Controller
 {
   private $api_key = 'f179549e06eec641ebb00f588d6c022c';
+
+  
+  public function __construct()
+  {
+    parent::__construct();
+    $this->load->model('m_admin');
+  }
+  
+
   public function provinsi()
   {
     $curl = curl_init();
